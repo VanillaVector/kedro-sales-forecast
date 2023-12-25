@@ -1,0 +1,35 @@
+model_options:
+  split_date: 2009-05-03 #2009-01-01
+  random_state: 42
+  n_estimators: 100
+  num_threads: 6
+  freqency: W
+  horizon: 4
+  lags: [1,2,4]
+  date_features:
+    - week
+    - month
+  static_features:
+    - Size
+    - Type_A
+    - Type_B
+  exogenous_features:
+    - IsHoliday
+    - Temperature
+    - Fuel_Price
+    - Unemployment
+    - CPI
+
+
+# model_options:
+#   test_size: 0.2
+#   random_state: 3
+#   features:
+#     - engines
+#     - passenger_capacity
+#     - crew
+#     - d_check_complete
+#     - moon_clearance_complete
+#     - iata_approved
+#     - company_rating
+#     - review_scores_rating

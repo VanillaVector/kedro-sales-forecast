@@ -1,0 +1,90 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+#
+# We support interacting with a variety of data stores including local file systems, cloud, network and HDFS
+#
+# An example data set definition can look as follows:
+#
+#bikes:
+#  type: pandas.CSVDataset
+#  filepath: "data/01_raw/bikes.csv"
+#
+#weather:
+#  type: spark.SparkDataset
+#  filepath: s3a://your_bucket/data/01_raw/weather*
+#  file_format: csv
+#  credentials: dev_s3
+#  load_args:
+#    header: True
+#    inferSchema: True
+#  save_args:
+#    sep: '|'
+#    header: True
+#
+#scooters:
+#  type: pandas.SQLTableDataset
+#  credentials: scooters_credentials
+#  table_name: scooters
+#  load_args:
+#    index_col: ['name']
+#    columns: ['name', 'gear']
+#  save_args:
+#    if_exists: 'replace'
+#    # if_exists: 'fail'
+#    # if_exists: 'append'
+#
+# The Data Catalog supports being able to reference the same file using two different Dataset implementations
+# (transcoding), templating and a way to reuse arguments that are frequently repeated. See more here:
+# https://docs.kedro.org/en/stable/data/data_catalog.html
+
+stores:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/stores.csv
+
+calendar:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/calendar.csv
+
+sales:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/sales.csv
+
+preprocessed_stores:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/preprocessed_stores.pq
+
+preprocessed_sales:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/preprocessed_sales.pq
+
+store_sales_weekly:
+  type: pandas.ParquetDataset
+  filepath: data/03_primary/store_sales_weekly.pq
+
+train_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/train_data.pq
+
+test_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/test_data.pq
+
+future_data:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/future_data.csv
+
+forecast_model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/mlforecast.pickle
+  versioned: true
+
+metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/metrics.json
+
+predictions:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/predictions.csv
+
