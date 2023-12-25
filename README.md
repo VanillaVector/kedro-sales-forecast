@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is your new Kedro project for the [spaceflights tutorial](https://docs.kedro.org/en/stable/tutorial/spaceflights_tutorial.html), which was generated using `kedro 0.19.1`.
+This is your new Kedro project for the Sales Forecast, which was generated using `kedro 0.19.1`.
 
 Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
 
