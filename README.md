@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is your new Kedro project for the Sales Forecast, which was generated using `kedro 0.19.1`.
+This is a Kedro based DS/ML project for the Sales Forecast, which was generated using `kedro 0.19.1`.
 
 Take a look at the [Kedro documentation](https://docs.kedro.org) to get started.
 
@@ -35,7 +35,7 @@ kedro run
 
 ## How to test your Kedro project
 
-Have a look at the files `src/tests/test_run.py` and `src/tests/pipelines/test_data_science.py` for instructions on how to write your tests. Run the tests as follows:
+Have a look at the files `src/tests/test_run.py` and `src/tests/pipelines/test_pipelines.py` for instructions on how to write your tests. Run the tests as follows:
 
 ```
 pytest
